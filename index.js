@@ -1,37 +1,30 @@
 const http = require('http');
-// Membuat server web mini untuk UptimeRobot
-http.createServer((req, res) => {
-    res.write('Bot is Alive!');
-    res.end();
-}).listen(8080);
+http.createServer((req, res) => { res.write('Bot is Alive!'); res.end(); }).listen(8080);
 
 const mineflayer = require('mineflayer');
 
 function createBot() {
     const bot = mineflayer.createBot({
         host: 'nowscraft.mcsh.io',
-        port: 2022,
-        username: 'Btbylipzie'
+        port: 25565, // Sesuaikan port jika bukan 25565
+        username: 'Btbylipzie',
+        version: '1.20.6' // <--- WAJIB DIISI MANUAL
     });
 
     bot.on('login', () => {
-        console.log('Bot [Btbylipzie] berhasil masuk ke server!');
+        console.log('✅ Berhasil Login!');
     });
 
-    // Bot hanya akan membalas jika ada yang mengetik "!info"
-    bot.on('chat', (username, message) => {
-        if (username === bot.username) return;
-        if (message === '!info') {
-            bot.chat('Halo! Saya bot 24/7 buatan asnoo/lipzie.');
-        }
+    bot.on('spawn', () => {
+        console.log('🎮 Bot Muncul di Game.');
     });
 
     bot.on('error', (err) => {
-        console.log('Terjadi kesalahan:', err);
+        console.log('❌ Error:', err.message);
     });
 
     bot.on('end', () => {
-        console.log('Bot terputus. Mencoba masuk lagi dalam 5 detik...');
+        console.log('⚠️ Terputus, mencoba lagi...');
         setTimeout(createBot, 5000);
     });
 }
