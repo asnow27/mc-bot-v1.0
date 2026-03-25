@@ -3,10 +3,9 @@ beta release 1.0
 
  << bot ini bisa melakukan : >>
 
-- perjalanan
-- melompat
-- dan memutar
-
+- auto login
+- .....
+- masi dalam tahap pegembangan
 -------------------------------
 
 | ingat ini masih beta jadi masih banyak kesalahan di project ini! |
