@@ -18,7 +18,7 @@ function createBot() {
 
     bot.on('chat', (username, message) => {
         if (username === bot.username) return;
-        bot.chat('Saya ai buatan asnoo/lipzie.');
+        bot.chat('Holaa teman saya adalah ytta.');
     });
 
     // Menangani error dan kick agar bot otomatis login ulang
